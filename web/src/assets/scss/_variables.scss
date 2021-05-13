@@ -1,0 +1,77 @@
+//colors
+$colors: (
+  "primary": rgb(232,74,33),
+  "strength":#9c2506,
+  "agility":#096509,
+  "intelligence":#06488a,
+  "info": #4b67af,
+  "white": #fff,
+  "white-1":#fcfcfc,
+  "white-2":#eceef0,
+  "light": #f9f9f9,
+  "light-1":#d4d9de,
+  "grey": #999,
+  "grey-1": #666,
+  "dark-1": #333,
+  "dark": #222,
+  "black": #000,
+  "blue": #4394e4,
+  "green": rgb(31, 173, 31)
+);
+// border-color
+$border-color: map-get($map: $colors, $key: 'light-1');
+
+
+// font size
+$base-font-size: 13px;
+$font-sizes: (
+  //8px
+  xxs: 0.615,
+  //10px
+  xs: 0.769,
+  //12px
+  sm: 0.923, 
+  //13px
+  md: 1,
+  //14px
+  lg: 1.077,
+  //16px
+  xl: 1.231,
+);
+
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  strech: strech,
+);
+
+// spacing
+// .mt-1 => margin top level1
+$spacing-type: (
+  m: margin,
+  p: padding,
+);
+$spacing-directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3,
+); //倍率
