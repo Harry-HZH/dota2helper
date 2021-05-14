@@ -4,6 +4,7 @@ import VueMeta from 'vue-meta'
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 Vue.use(VueLazyload, {
+  loading:require('./assets/images/lazy-load.gif'),
   preLoad: 1.3,
   attempt: 1
 })

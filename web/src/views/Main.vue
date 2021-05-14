@@ -58,3 +58,10 @@ export default {
   }
 }
 </style>
+<style>
+img[lazy="loading"]{
+  display:block;
+  width:59px !important;
+  height:71.4px !important;
+  }
+</style>

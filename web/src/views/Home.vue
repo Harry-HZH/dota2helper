@@ -107,7 +107,7 @@
             :key="i"
             :to="`/heroes/${hero._id}`"
           >
-            <img :src="hero.avatar" class="w-100" alt="" lazy="loaded"/>
+            <img v-lazy="hero.avatar" class="w-100" alt=""/>
             <div>{{ hero.name }}</div>
           </router-link>
         </div>
@@ -167,9 +167,7 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/_variables.scss";
- img[lazy=loading] {
-    background: white;
-  }
+
 
 .pagination-home {
   .swiper-pagination-bullet {
