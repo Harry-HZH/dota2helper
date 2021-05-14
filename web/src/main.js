@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueMeta from 'vue-meta'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  attempt: 1
+})
 Vue.use(VueMeta)
 
 
