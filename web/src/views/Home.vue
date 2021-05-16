@@ -71,8 +71,7 @@
         <i
           class="sprite sprite-arrow mr-1"
           @click="showdisplay = !showdisplay"
-        ></i
-        >
+        ></i>
         <span class="fs-sm">收起</span>
       </div>
     </div>
@@ -107,13 +106,20 @@
             :key="i"
             :to="`/heroes/${hero._id}`"
           >
-            <img v-lazy="hero.avatar" class="w-100" alt=""/>
+            <img v-lazy="hero.avatar" class="w-100" alt="" />
             <div>{{ hero.name }}</div>
           </router-link>
         </div>
       </template>
     </m-list-card>
-    <m-card icon="Menu" title="精彩视频"></m-card>
+    <m-card icon="Menu" title="精彩视频">
+      <div class="d-flex flex-wrap">
+        <router-link v-for="(item, i) in videoCats" :key="i" class="video-item" :to="`/videos/${item._id}`">
+          <img class="video-icon" :src="item.icon" alt="" />
+          <span class="text-ellipse w-100">{{ item.name }}</span>
+        </router-link>
+      </div>
+    </m-card>
     <m-card icon="Menu" title="图文攻略"></m-card>
   </div>
 </template>
@@ -138,9 +144,11 @@ export default {
         },
         // Some Swiper option/callback...
       },
+      src: "",
       newsCats: [],
       heroCats: [],
       reverseNewsCats: [],
+      videoCats: [],
     };
   },
   methods: {
@@ -155,10 +163,17 @@ export default {
     async fetchHeroCats() {
       const res = await this.$http.get("heroes/list");
       this.heroCats = res.data;
+      console.log(res.data);
+    },
+    async fetchVideoCats() {
+      const res = await this.$http.get("videos/list");
+      this.videoCats = res.data;
+      console.log(res.data);
     },
   },
 
   created() {
+    this.fetchVideoCats();
     this.fetchNewsCats();
     this.fetchHeroCats();
   },
@@ -167,7 +182,6 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/_variables.scss";
-
 
 .pagination-home {
   .swiper-pagination-bullet {

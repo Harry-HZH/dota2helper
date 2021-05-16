@@ -5,6 +5,7 @@ module.exports = app => {
   const Article = require('../../models/Article')
   const Category = require('../../models/Category')
   const Hero = require('../../models/Hero')
+  const Video = require('../../models/Video')
 
   router.get('/news/init', async (req, res) => {
     const parent = await Category.findOne({
@@ -94,17 +95,33 @@ module.exports = app => {
 
     res.send(cats)
   })
+  router.get('/videos/list', async (req, res) => {
+    const parent = await Category.findOne({
+      name: '精彩视频'
+    })
+    const cats = await Video.aggregate([
+      { $match: { categories: parent._id } },
+    ]).limit(4)
+
+    res.send(cats)
+  })
+
 
   router.get('/articles/:id', async (req, res) => {
     const data = await Article.findById(req.params.id).lean()
     res.send(data)
   })
 
+  router.get('/videos/:id', async (req, res) => {
+    const data = await Video.findById(req.params.id).lean()
+    res.send(data)
+  })
+
   router.get('/heroes/:id', async (req, res) => {
     const data = await Hero
-    .findById(req.params.id)
-    .populate('categories items1 items2 partners.hero')
-    .lean()
+      .findById(req.params.id)
+      .populate('categories items1 items2 partners.hero')
+      .lean()
     res.send(data)
   })
 

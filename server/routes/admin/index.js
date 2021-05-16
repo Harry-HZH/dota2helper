@@ -32,7 +32,6 @@ module.exports = app => {
       queryOptions.populate = 'parent'
     }
     const items = await req.Model.find().setOptions(queryOptions).limit(100)
-    console.log(items);
     res.send(items)
   })
   //资源详情
@@ -50,7 +49,7 @@ module.exports = app => {
   const upload = multer({ dest: __dirname + '/../../uploads' })
   app.post('/admin/api/upload', authMiddleware(), upload.single('file'), async (req, res) => {
     const file = req.file
-    file.url = `https://test.redguide.top/uploads/${file.filename}`
+    file.url = `http://localhost:3000/uploads/${file.filename}`
     res.send(file)
   })
 
