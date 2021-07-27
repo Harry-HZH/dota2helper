@@ -1,5 +1,5 @@
 <template>
-  <m-card :icon="icon" :title="title">
+  <m-card :icon="icon" :title="title" :mySelf="mySelf" >
     <div class="nav jc-between">
       <div
         class="nav-item"
@@ -35,6 +35,7 @@ export default {
     icon: { type: String, required: true },
     title: { type: String, required: true },
     categories: { type: Array, required: true },
+    mySelf:{type:String,required:true}
   },
   data() {
     return {

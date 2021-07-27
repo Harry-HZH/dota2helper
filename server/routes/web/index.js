@@ -66,6 +66,10 @@ module.exports = app => {
     })
     res.send(cats)
   })
+  router.get('/news/listAll', async (req, res) => {
+    const model = await Article.find().sort({'createdAt' : -1})
+    res.send(model)
+  })
 
   router.get('/heroes/list', async (req, res) => {
     const parent = await Category.findOne({

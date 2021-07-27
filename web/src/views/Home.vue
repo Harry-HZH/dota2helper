@@ -77,7 +77,7 @@
     </div>
     <!-- end of nav icons -->
 
-    <m-list-card icon="Menu" title="新闻资讯" :categories="newsCats">
+    <m-list-card icon="Menu" title="新闻资讯" mySelf="news" :categories="newsCats">
       <template v-slot:items="abc">
         <router-link
           tag="div"
@@ -95,7 +95,7 @@
         </router-link>
       </template>
     </m-list-card>
-    <m-list-card icon="yingxiong" title="英雄列表" :categories="heroCats">
+    <m-list-card icon="yingxiong" title="英雄列表" mySelf="Heroes" :categories="heroCats">
       <template v-slot:items="abc">
         <div class="d-flex flex-wrap" style="margin: 0 -0.5rem">
           <router-link
@@ -112,7 +112,7 @@
         </div>
       </template>
     </m-list-card>
-    <m-card icon="Menu" title="精彩视频">
+    <m-card icon="Menu" mySelf="videos" title="精彩视频">
       <div class="d-flex flex-wrap">
         <router-link v-for="(item, i) in videoCats" :key="i" class="video-item" :to="`/videos/${item._id}`">
           <img class="video-icon" :src="item.icon" alt="" />
@@ -202,5 +202,9 @@ export default {
       border-right: none;
     }
   }
+}
+
+a:-webkit-any-link {
+  text-decoration-line: none;
 }
 </style>

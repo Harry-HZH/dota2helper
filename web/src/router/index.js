@@ -5,6 +5,7 @@ import Main from '../views/Main.vue'
 import Article from '../views/Article.vue'
 import Hero from '../views/Hero.vue'
 import Video from '../views/Video.vue'
+import MoreContent from '../views/MoreContent.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,7 +15,9 @@ const routes = [
     children: [
       {path: '/', name: 'home', component:Home},
       {path: '/articles/:id', name: 'article', component:Article, props:true},
-      {path: '/videos/:id',props:true,name:'video',component:Video,}
+      {path: '/videos/:id',props:true,name:'video',component:Video,},
+      {path: '/moreContent/:mySelf',props:true,name:'moreContent',component:MoreContent},
+
     ]
   },
   {
